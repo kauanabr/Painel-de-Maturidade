@@ -7,400 +7,109 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --somma-dark:    #2E3E44;
-    --somma-mid:     #4B646F;
-    --somma-light:   #4D6571;
-    --somma-slate:   #373C3C;
-    --somma-gold:    #CC8B15;
-    --somma-gold-lt: #E2A849;
-    --somma-teal:    #007374;
-    --somma-teal-lt: #24C6C1;
-    --somma-gray:    #C3C4C6;
-    --somma-bg:      #F7F8F8;
-    --somma-white:   #FFFFFF;
-    --somma-border:  #E2E6E8;
-    --somma-text:    #2E3E44;
-    --somma-muted:   #7A909A;
+    --somma-dark:   #2E3E44;
+    --somma-mid:    #4B646F;
+    --somma-gold:   #CC8B15;
+    --somma-teal:   #007374;
+    --somma-gray:   #C3C4C6;
+    --somma-bg:     #F7F8F8;
+    --somma-white:  #FFFFFF;
+    --somma-border: #E2E6E8;
+    --somma-muted:  #7A909A;
   }
+  body { font-family: 'Inter', sans-serif; background: var(--somma-bg); color: var(--somma-dark); min-height: 100vh; font-size: 14px; line-height: 1.6; }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--somma-bg);
-    color: var(--somma-text);
-    min-height: 100vh;
-    font-size: 14px;
-    line-height: 1.6;
-  }
+  /* HEADER */
+  .header { background: var(--somma-white); border-bottom: 1px solid var(--somma-border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+  .logo { display: flex; align-items: center; gap: 14px; }
+  .logo-icon { width: 36px; height: 36px; }
+  .logo-divider { width: 1px; height: 24px; background: var(--somma-border); }
+  .logo-product-name { font-size: 13px; font-weight: 600; color: var(--somma-dark); letter-spacing: 0.08em; line-height: 1.2; }
+  .logo-product-sub { font-size: 10px; color: var(--somma-gold); letter-spacing: 0.12em; }
+  .header-right { display: flex; align-items: center; gap: 12px; }
+  .header-badge { background: #EDF6F6; color: var(--somma-teal); border: 1px solid #B0DCDC; border-radius: 20px; padding: 4px 14px; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; }
+  .header-date { font-size: 12px; color: var(--somma-muted); }
 
-  /* ── HEADER ── */
-  .header {
-    background: var(--somma-white);
-    border-bottom: 1px solid var(--somma-border);
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .logo-icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .logo-divider {
-    width: 1px;
-    height: 24px;
-    background: var(--somma-border);
-  }
-
-  .logo-product {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .logo-product-name {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--somma-dark);
-    letter-spacing: 0.08em;
-    line-height: 1.2;
-  }
-
-  .logo-product-sub {
-    font-size: 10px;
-    font-weight: 400;
-    color: var(--somma-gold);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .header-badge {
-    background: #EDF6F6;
-    color: var(--somma-teal);
-    border: 1px solid #B0DCDC;
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-  }
-
-  .header-date {
-    font-size: 12px;
-    color: var(--somma-muted);
-  }
-
-  /* ── METRICS ── */
-  .metrics-bar {
-    background: var(--somma-white);
-    border-bottom: 1px solid var(--somma-border);
-    padding: 1.25rem 2rem;
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1px;
-  }
-
-  .metric {
-    padding: 0 1.5rem;
-    border-right: 1px solid var(--somma-border);
-  }
-
+  /* METRICS */
+  .metrics-bar { background: var(--somma-white); border-bottom: 1px solid var(--somma-border); padding: 1.25rem 2rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .metric { padding: 0 1.5rem; border-right: 1px solid var(--somma-border); }
   .metric:first-child { padding-left: 0; }
   .metric:last-child { border-right: none; }
-
-  .metric-label {
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--somma-muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  .metric-value {
-    font-size: 26px;
-    font-weight: 300;
-    color: var(--somma-dark);
-    letter-spacing: -0.02em;
-  }
-
+  .metric-label { font-size: 10px; font-weight: 500; color: var(--somma-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; }
+  .metric-value { font-size: 26px; font-weight: 300; color: var(--somma-dark); letter-spacing: -0.02em; }
   .metric-value.accent { color: var(--somma-gold); }
-  .metric-value.teal   { color: var(--somma-teal); }
+  .metric-value.teal { color: var(--somma-teal); }
+  .metric-sub { font-size: 11px; color: var(--somma-muted); margin-top: 2px; }
 
-  .metric-sub {
-    font-size: 11px;
-    color: var(--somma-muted);
-    margin-top: 2px;
-  }
+  /* MAIN */
+  .main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
 
-  /* ── MAIN ── */
-  .main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-
-  /* ── TOOLBAR ── */
-  .toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.25rem;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .toolbar-left {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .search-wrap {
-    position: relative;
-  }
-
-  .search-wrap svg {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 14px;
-    height: 14px;
-    color: var(--somma-muted);
-  }
-
-  .search-input {
-    background: var(--somma-white);
-    border: 1px solid var(--somma-border);
-    border-radius: 8px;
-    padding: 8px 12px 8px 32px;
-    font-size: 13px;
-    font-family: 'Inter', sans-serif;
-    color: var(--somma-text);
-    width: 240px;
-    outline: none;
-    transition: border-color 0.15s;
-  }
-
+  /* TOOLBAR */
+  .toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+  .search-wrap { position: relative; }
+  .search-wrap svg { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; color: var(--somma-muted); }
+  .search-input { background: var(--somma-white); border: 1px solid var(--somma-border); border-radius: 8px; padding: 8px 12px 8px 32px; font-size: 13px; font-family: 'Inter', sans-serif; color: var(--somma-dark); width: 240px; outline: none; transition: border-color 0.15s; }
   .search-input:focus { border-color: var(--somma-mid); }
+  .filter-btn { background: var(--somma-white); border: 1px solid var(--somma-border); border-radius: 20px; padding: 6px 16px; font-size: 12px; font-family: 'Inter', sans-serif; color: var(--somma-muted); cursor: pointer; transition: all 0.15s; }
+  .filter-btn:hover { border-color: var(--somma-mid); color: var(--somma-mid); }
+  .filter-btn.active { background: var(--somma-dark); border-color: var(--somma-dark); color: var(--somma-white); font-weight: 500; }
+  .filter-btn.f-quente.active { background: var(--somma-gold); border-color: var(--somma-gold); }
+  .filter-btn.f-morno.active { background: var(--somma-mid); border-color: var(--somma-mid); }
+  .filter-btn.f-frio.active { background: var(--somma-gray); border-color: var(--somma-gray); color: var(--somma-dark); }
 
-  .filter-btn {
-    background: var(--somma-white);
-    border: 1px solid var(--somma-border);
-    border-radius: 20px;
-    padding: 6px 16px;
-    font-size: 12px;
-    font-family: 'Inter', sans-serif;
-    color: var(--somma-muted);
-    cursor: pointer;
-    transition: all 0.15s;
-    font-weight: 400;
-  }
+  /* REFRESH */
+  .refresh-btn { margin-left: auto; background: transparent; border: 1px solid var(--somma-border); border-radius: 8px; padding: 6px 14px; font-size: 12px; font-family: 'Inter', sans-serif; color: var(--somma-muted); cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.15s; }
+  .refresh-btn:hover { border-color: var(--somma-teal); color: var(--somma-teal); }
+  .refresh-btn svg { width: 12px; height: 12px; }
+  .spinning { animation: spin 0.8s linear infinite; }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-  .filter-btn:hover {
-    border-color: var(--somma-mid);
-    color: var(--somma-mid);
-  }
-
-  .filter-btn.active {
-    background: var(--somma-dark);
-    border-color: var(--somma-dark);
-    color: var(--somma-white);
-    font-weight: 500;
-  }
-
-  .filter-btn.f-quente.active  { background: var(--somma-gold);  border-color: var(--somma-gold); }
-  .filter-btn.f-morno.active   { background: #8FA88F; border-color: #8FA88F; }
-  .filter-btn.f-frio.active    { background: var(--somma-mid);  border-color: var(--somma-mid); }
-
-  /* ── TABLE ── */
-  .table-card {
-    background: var(--somma-white);
-    border: 1px solid var(--somma-border);
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .table-head {
-    display: grid;
-    grid-template-columns: 2.6fr 1.8fr 1.4fr 1.6fr 1fr;
-    gap: 16px;
-    padding: 10px 20px;
-    background: #F4F6F7;
-    border-bottom: 1px solid var(--somma-border);
-  }
-
-  .th {
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--somma-muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .lead-row {
-    display: grid;
-    grid-template-columns: 2.6fr 1.8fr 1.4fr 1.6fr 1fr;
-    gap: 16px;
-    padding: 16px 20px;
-    border-bottom: 1px solid #F0F3F4;
-    cursor: pointer;
-    transition: background 0.12s;
-    align-items: center;
-  }
-
+  /* TABLE */
+  .table-card { background: var(--somma-white); border: 1px solid var(--somma-border); border-radius: 12px; overflow: hidden; }
+  .table-head { display: grid; grid-template-columns: 2.6fr 1.8fr 1.4fr 1.6fr 1fr; gap: 16px; padding: 10px 20px; background: #F4F6F7; border-bottom: 1px solid var(--somma-border); }
+  .th { font-size: 10px; font-weight: 600; color: var(--somma-muted); letter-spacing: 0.1em; text-transform: uppercase; }
+  .lead-row { display: grid; grid-template-columns: 2.6fr 1.8fr 1.4fr 1.6fr 1fr; gap: 16px; padding: 16px 20px; border-bottom: 1px solid #F0F3F4; cursor: pointer; transition: background 0.12s; align-items: center; }
   .lead-row:last-child { border-bottom: none; }
   .lead-row:hover { background: #F9FAFB; }
   .lead-row.selected { background: #F4F8F8; border-left: 3px solid var(--somma-teal); padding-left: 17px; }
-
-  /* ── LEAD INFO ── */
   .lead-info { display: flex; align-items: center; gap: 12px; }
-
-  .avatar {
-    width: 38px; height: 38px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 12px; font-weight: 600;
-    flex-shrink: 0;
-    letter-spacing: 0.04em;
-  }
-
+  .avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
   .lead-name { font-size: 13px; font-weight: 500; color: var(--somma-dark); line-height: 1.3; }
-  .lead-sub  { font-size: 11px; color: var(--somma-muted); margin-top: 1px; }
-
-  /* ── LAST ACTION ── */
+  .lead-sub { font-size: 11px; color: var(--somma-muted); margin-top: 1px; }
   .action-text { font-size: 12px; font-weight: 500; }
   .action-time { font-size: 11px; color: var(--somma-muted); margin-top: 2px; }
-
-  /* ── SCORE ── */
   .score-col { display: flex; flex-direction: column; gap: 5px; }
-  .score-num { font-size: 16px; font-weight: 300; color: var(--somma-dark); letter-spacing: -0.02em; }
+  .score-num { font-size: 16px; font-weight: 300; color: var(--somma-dark); }
   .bar-track { height: 3px; background: #E8ECEE; border-radius: 2px; }
-  .bar-fill  { height: 100%; border-radius: 2px; transition: width 0.8s cubic-bezier(0.4,0,0.2,1); }
-
-  /* ── SIGNALS ── */
+  .bar-fill { height: 100%; border-radius: 2px; transition: width 0.8s cubic-bezier(0.4,0,0.2,1); }
   .signals { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; }
+  .sig-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .status-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+  .status-dot { width: 5px; height: 5px; border-radius: 50%; }
 
-  .sig-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    position: relative;
-  }
-
-  .sig-dot[title]:hover::after {
-    content: attr(title);
-    position: absolute;
-    bottom: 14px; left: 50%; transform: translateX(-50%);
-    background: var(--somma-dark); color: #fff;
-    font-size: 10px; white-space: nowrap;
-    padding: 3px 8px; border-radius: 4px;
-    pointer-events: none; z-index: 10;
-  }
-
-  /* ── STATUS BADGE ── */
-  .status-badge {
-    display: inline-flex; align-items: center; gap: 5px;
-    font-size: 11px; font-weight: 500;
-    padding: 4px 10px; border-radius: 20px;
-    white-space: nowrap;
-  }
-
-  .status-dot {
-    width: 5px; height: 5px; border-radius: 50%;
-  }
-
-  /* ── DETAIL PANEL ── */
-  .detail-panel {
-    background: #F4F8F8;
-    border-top: 1px solid var(--somma-border);
-    padding: 20px;
-    display: none;
-  }
-
+  /* DETAIL */
+  .detail-panel { background: #F4F8F8; border-top: 1px solid var(--somma-border); padding: 20px; display: none; }
   .detail-panel.open { display: block; }
-
-  .detail-header {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 16px;
-  }
-
-  .detail-title {
-    font-size: 12px; font-weight: 600;
-    color: var(--somma-teal);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .simulate-btn {
-    background: var(--somma-teal);
-    border: none; color: #fff;
-    border-radius: 8px;
-    padding: 7px 16px;
-    font-size: 12px; font-weight: 500;
-    font-family: 'Inter', sans-serif;
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-
-  .simulate-btn:hover { opacity: 0.85; }
-  .simulate-btn:disabled { opacity: 0.4; cursor: default; }
-
-  .timeline { display: flex; flex-direction: column; gap: 0; }
-
-  .tl-item {
-    display: flex; align-items: flex-start; gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid #E4ECEE;
-  }
-
+  .detail-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .detail-title { font-size: 12px; font-weight: 600; color: var(--somma-teal); letter-spacing: 0.08em; text-transform: uppercase; }
+  .tl-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #E4ECEE; }
   .tl-item:last-child { border-bottom: none; }
-
-  .tl-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    margin-top: 4px; flex-shrink: 0;
-  }
-
+  .tl-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
   .tl-text { font-size: 12px; color: var(--somma-dark); flex: 1; }
   .tl-time { font-size: 11px; color: var(--somma-muted); margin-top: 2px; }
-  .tl-pts  { font-size: 12px; font-weight: 600; color: var(--somma-teal); white-space: nowrap; }
+  .tl-pts { font-size: 12px; font-weight: 600; color: var(--somma-teal); white-space: nowrap; }
 
-  /* ── EMPTY ── */
-  .empty {
-    padding: 3rem; text-align: center;
-    color: var(--somma-muted); font-size: 13px;
-  }
+  /* LOADING / EMPTY / ERROR */
+  .state-msg { padding: 3rem; text-align: center; color: var(--somma-muted); font-size: 13px; }
+  .loader { display: inline-block; width: 20px; height: 20px; border: 2px solid var(--somma-border); border-top-color: var(--somma-teal); border-radius: 50%; animation: spin 0.7s linear infinite; margin-bottom: 12px; }
 
-  /* ── FOOTER ── */
-  .page-footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 11px;
-    color: var(--somma-muted);
-    letter-spacing: 0.04em;
-  }
+  /* FOOTER */
+  .page-footer { text-align: center; padding: 2rem; font-size: 11px; color: var(--somma-muted); letter-spacing: 0.04em; }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="header">
   <div class="logo">
     <svg class="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -410,35 +119,41 @@
     </svg>
     <div class="logo-divider"></div>
     <div class="logo-product">
-      <span class="logo-product-name">SOMA PULSE</span>
-      <span class="logo-product-sub">Somma Multi-Family Office</span>
+      <div class="logo-product-name">SOMA PULSE</div>
+      <div class="logo-product-sub">Somma Multi-Family Office</div>
     </div>
   </div>
   <div class="header-right">
     <span class="header-date" id="today-date"></span>
-    <span class="header-badge">Demonstração</span>
+    <span class="header-badge">Piloto</span>
   </div>
 </header>
 
-<!-- METRICS -->
-<div class="metrics-bar" id="metrics-bar"></div>
+<div class="metrics-bar" id="metrics-bar">
+  <div class="metric"><div class="metric-label">Carregando</div><div class="metric-value">—</div></div>
+  <div class="metric"><div class="metric-label">Carregando</div><div class="metric-value">—</div></div>
+  <div class="metric"><div class="metric-label">Carregando</div><div class="metric-value">—</div></div>
+  <div class="metric"><div class="metric-label">Carregando</div><div class="metric-value">—</div></div>
+</div>
 
-<!-- MAIN -->
 <main class="main">
-
   <div class="toolbar">
-    <div class="toolbar-left">
-      <div class="search-wrap">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <input class="search-input" id="search" type="text" placeholder="Buscar lead ou empresa..." oninput="render()">
-      </div>
-      <button class="filter-btn active" onclick="setFilter('todos',this)">Todos</button>
-      <button class="filter-btn f-quente" onclick="setFilter('quente',this)">Quentes</button>
-      <button class="filter-btn f-morno" onclick="setFilter('mornando',this)">Mornando</button>
-      <button class="filter-btn f-frio" onclick="setFilter('frio',this)">Frios</button>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input class="search-input" id="search" type="text" placeholder="Buscar lead ou empresa..." oninput="renderTable()">
     </div>
+    <button class="filter-btn active" onclick="setFilter('todos',this)">Todos</button>
+    <button class="filter-btn f-quente" onclick="setFilter('quente',this)">Quentes</button>
+    <button class="filter-btn f-morno" onclick="setFilter('mornando',this)">Mornando</button>
+    <button class="filter-btn f-frio" onclick="setFilter('frio',this)">Frios</button>
+    <button class="refresh-btn" onclick="loadData()" id="refresh-btn">
+      <svg id="refresh-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+      </svg>
+      Atualizar
+    </button>
   </div>
 
   <div class="table-card">
@@ -449,185 +164,92 @@
       <div class="th">Sinais captados</div>
       <div class="th">Status</div>
     </div>
-    <div id="table-body"></div>
+    <div id="table-body"><div class="state-msg"><div class="loader"></div><br>Carregando leads...</div></div>
     <div id="detail-panel" class="detail-panel"></div>
   </div>
-
 </main>
 
 <footer class="page-footer">
-  Soma Pulse &nbsp;·&nbsp; Somma Multi-Family Office &nbsp;·&nbsp; Sistema de Lead Scoring Comportamental &nbsp;·&nbsp; Dados fictícios para demonstração interna
+  Soma Pulse &nbsp;·&nbsp; Somma Multi-Family Office &nbsp;·&nbsp; Sistema de Lead Scoring Comportamental
 </footer>
 
 <script>
-const today = new Date();
-document.getElementById('today-date').textContent =
-  today.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+// ── CONFIGURAÇÃO SUPABASE ──────────────────────────────────────────────────
+const SUPABASE_URL = 'https://vbgfezprutxpfcdphnyc.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZiZ2ZlenBydXR4cGZjZHBobnljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxNDkwMDAsImV4cCI6MjA5MTcyNTAwMH0.Tw33WmBpSICciWcE4wW9OENirCLMfPJU8Uv9U-wHRtM';
 
-const LEADS = [
-  {
-    id: 1,
-    name: 'Ricardo Mendes',
-    company: 'Grupo Mendes Agro',
-    city: 'Chapecó, SC',
-    initials: 'RM',
-    avatarBg: '#E8F0EC', avatarColor: '#2E3E44',
-    score: 118,
-    status: 'prioritario',
-    lastAction: 'Respondeu o e-mail',
-    lastTime: 'há 2 horas',
-    actionColor: '#CC8B15',
-    signals: {
-      'E-mail aberto': true,
-      'Link clicado': true,
-      'LP acessada': true,
-      'Quiz feito': true,
-      'E-mail respondido': true,
-      'PDF baixado': true
-    },
-    timeline: [
-      { text: 'Respondeu o e-mail — "Tenho interesse em conversar"', pts: '+60', time: 'Hoje, 09h14', color: '#CC8B15' },
-      { text: 'Completou o quiz — perfil: Exposto', pts: '+40', time: 'Ontem, 16h42', color: '#007374' },
-      { text: 'Ficou 4 min na landing page', pts: '+25', time: 'Ontem, 16h38', color: '#4B646F' },
-      { text: 'Clicou no link do e-mail 3', pts: '+15', time: 'Ontem, 16h37', color: '#4B646F' },
-      { text: 'Abriu e-mail 3', pts: '+5', time: 'Ontem, 16h30', color: '#C3C4C6' },
-      { text: 'Abriu e-mail 1', pts: '+5', time: '3 dias atrás', color: '#C3C4C6' },
-    ]
-  },
-  {
-    id: 2,
-    name: 'Fernanda Oliveira',
-    company: 'Oliveira & Cia Holdings',
-    city: 'Blumenau, SC',
-    initials: 'FO',
-    avatarBg: '#EBF0F4', avatarColor: '#2E3E44',
-    score: 85,
-    status: 'quente',
-    lastAction: 'Acessou LP (2ª vez)',
-    lastTime: 'há 6 horas',
-    actionColor: '#007374',
-    signals: {
-      'E-mail aberto': true,
-      'Link clicado': true,
-      'LP acessada': true,
-      'Quiz feito': true,
-      'E-mail respondido': false,
-      'PDF baixado': false
-    },
-    timeline: [
-      { text: 'Voltou à landing page (2ª visita)', pts: '+10', time: 'Hoje, 07h22', color: '#007374' },
-      { text: 'Completou o quiz — perfil: Parcialmente estruturado', pts: '+40', time: 'Ontem, 11h05', color: '#007374' },
-      { text: 'Clicou no link do e-mail 2', pts: '+15', time: 'Ontem, 10h58', color: '#4B646F' },
-      { text: 'Abriu e-mail 2', pts: '+5', time: 'Ontem, 10h55', color: '#C3C4C6' },
-      { text: 'Abriu e-mail 1', pts: '+5', time: '4 dias atrás', color: '#C3C4C6' },
-    ]
-  },
-  {
-    id: 3,
-    name: 'Cláudio Bertoni',
-    company: 'Bertoni Transportes Ltda.',
-    city: 'Joinville, SC',
-    initials: 'CB',
-    avatarBg: '#F4F0E8', avatarColor: '#2E3E44',
-    score: 55,
-    status: 'mornando',
-    lastAction: 'Clicou em link',
-    lastTime: 'há 2 dias',
-    actionColor: '#4B646F',
-    signals: {
-      'E-mail aberto': true,
-      'Link clicado': true,
-      'LP acessada': true,
-      'Quiz feito': false,
-      'E-mail respondido': false,
-      'PDF baixado': false
-    },
-    timeline: [
-      { text: 'Acessou a landing page', pts: '+20', time: '2 dias atrás, 14h30', color: '#4B646F' },
-      { text: 'Clicou no link do e-mail 1', pts: '+15', time: '2 dias atrás, 14h28', color: '#4B646F' },
-      { text: 'Abriu e-mail 2', pts: '+5', time: '2 dias atrás, 14h22', color: '#C3C4C6' },
-      { text: 'Abriu e-mail 1', pts: '+5', time: '3 dias atrás', color: '#C3C4C6' },
-    ]
-  },
-  {
-    id: 4,
-    name: 'Augusto Figueiredo',
-    company: 'Figueiredo Participações',
-    city: 'Florianópolis, SC',
-    initials: 'AF',
-    avatarBg: '#EDF6F6', avatarColor: '#2E3E44',
-    score: 35,
-    status: 'frio',
-    lastAction: 'Abriu e-mail',
-    lastTime: 'há 5 dias',
-    actionColor: '#C3C4C6',
-    signals: {
-      'E-mail aberto': true,
-      'Link clicado': false,
-      'LP acessada': false,
-      'Quiz feito': false,
-      'E-mail respondido': false,
-      'PDF baixado': false
-    },
-    timeline: [
-      { text: 'Abriu e-mail 2', pts: '+5', time: '5 dias atrás', color: '#C3C4C6' },
-      { text: 'Abriu e-mail 1', pts: '+5', time: '7 dias atrás', color: '#C3C4C6' },
-    ]
-  },
-  {
-    id: 5,
-    name: 'Mariana Westphal',
-    company: 'Westphal Imóveis e Participações',
-    city: 'Curitiba, PR',
-    initials: 'MW',
-    avatarBg: '#F4EEF8', avatarColor: '#2E3E44',
-    score: 15,
-    status: 'frio',
-    lastAction: 'Abriu e-mail',
-    lastTime: 'há 8 dias',
-    actionColor: '#C3C4C6',
-    signals: {
-      'E-mail aberto': true,
-      'Link clicado': false,
-      'LP acessada': false,
-      'Quiz feito': false,
-      'E-mail respondido': false,
-      'PDF baixado': false
-    },
-    timeline: [
-      { text: 'Abriu e-mail 1', pts: '+5', time: '8 dias atrás', color: '#C3C4C6' },
-    ]
-  },
-  {
-    id: 6,
-    name: 'Paulo Schroeder',
-    company: 'Schroeder Holding Familiar',
-    city: 'Joinville, SC',
-    initials: 'PS',
-    avatarBg: '#EEF4EC', avatarColor: '#2E3E44',
-    score: 70,
-    status: 'mornando',
-    lastAction: 'Baixou o PDF',
-    lastTime: 'há 1 dia',
-    actionColor: '#4B646F',
-    signals: {
-      'E-mail aberto': true,
-      'Link clicado': true,
-      'LP acessada': true,
-      'Quiz feito': false,
-      'E-mail respondido': false,
-      'PDF baixado': true
-    },
-    timeline: [
-      { text: 'Baixou o PDF via link do e-mail', pts: '+15', time: '1 dia atrás, 10h12', color: '#4B646F' },
-      { text: 'Scroll acima de 70% na landing page', pts: '+15', time: '1 dia atrás, 10h08', color: '#4B646F' },
-      { text: 'Acessou a landing page', pts: '+20', time: '1 dia atrás, 10h05', color: '#4B646F' },
-      { text: 'Clicou no link do e-mail 1', pts: '+15', time: '1 dia atrás, 10h04', color: '#4B646F' },
-      { text: 'Abriu e-mail 1', pts: '+5', time: '2 dias atrás', color: '#C3C4C6' },
-    ]
+const HEADERS = {
+  'apikey': SUPABASE_KEY,
+  'Authorization': 'Bearer ' + SUPABASE_KEY,
+  'Content-Type': 'application/json'
+};
+
+// ── TRACKING — captura ?lid= na URL e registra acesso ─────────────────────
+(async function trackPageVisit() {
+  const params = new URLSearchParams(window.location.search);
+  const lid = params.get('lid');
+  if (!lid) return;
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/eventos`, {
+      method: 'POST',
+      headers: HEADERS,
+      body: JSON.stringify({ lead_id: lid, acao: 'acessou_pagina', pontos: 20 })
+    });
+    await recalcScore(lid);
+  } catch(e) { console.warn('Tracking erro:', e); }
+})();
+
+// ── RECALCULAR SCORE ───────────────────────────────────────────────────────
+async function recalcScore(leadId) {
+  const res = await fetch(
+    `${SUPABASE_URL}/rest/v1/eventos?lead_id=eq.${leadId}&select=pontos`,
+    { headers: HEADERS }
+  );
+  const events = await res.json();
+  const total = events.reduce((a, e) => a + (e.pontos || 0), 0);
+  await fetch(`${SUPABASE_URL}/rest/v1/leads?id=eq.${leadId}`, {
+    method: 'PATCH',
+    headers: HEADERS,
+    body: JSON.stringify({ score: total })
+  });
+}
+
+// ── CARREGAR DADOS ─────────────────────────────────────────────────────────
+let LEADS = [];
+let EVENTOS = [];
+let activeFilter = 'todos';
+let selectedId = null;
+
+async function loadData() {
+  const icon = document.getElementById('refresh-icon');
+  icon.classList.add('spinning');
+
+  try {
+    const [leadsRes, eventosRes] = await Promise.all([
+      fetch(`${SUPABASE_URL}/rest/v1/leads?select=*&order=score.desc`, { headers: HEADERS }),
+      fetch(`${SUPABASE_URL}/rest/v1/eventos?select=*&order=timestamp.desc`, { headers: HEADERS })
+    ]);
+
+    LEADS   = await leadsRes.json();
+    EVENTOS = await eventosRes.json();
+
+    if (!Array.isArray(LEADS)) {
+      document.getElementById('table-body').innerHTML =
+        '<div class="state-msg">Erro ao carregar dados. Verifique a configuração do Supabase.</div>';
+      return;
+    }
+
+    renderMetrics();
+    renderTable();
+  } catch(e) {
+    document.getElementById('table-body').innerHTML =
+      '<div class="state-msg">Erro de conexão com o banco de dados.</div>';
+  } finally {
+    icon.classList.remove('spinning');
   }
-];
+}
 
+// ── STATUS ─────────────────────────────────────────────────────────────────
 const STATUS = {
   prioritario: { label: 'Prioritário', bg: '#FEF6E7', color: '#AA6F0D', dot: '#CC8B15' },
   quente:      { label: 'Quente',      bg: '#E6F4F4', color: '#005F5F', dot: '#007374' },
@@ -636,42 +258,27 @@ const STATUS = {
 };
 
 const BAR_COLOR = {
-  prioritario: '#CC8B15',
-  quente: '#007374',
-  mornando: '#4B646F',
-  frio: '#C3C4C6'
+  prioritario: '#CC8B15', quente: '#007374', mornando: '#4B646F', frio: '#C3C4C6'
 };
 
-const SIM_ACTIONS = [
-  { text: 'Baixou o PDF via link', pts: 15, sig: 'PDF baixado', color: '#4B646F' },
-  { text: 'Voltou à landing page', pts: 10, sig: null, color: '#4B646F' },
-  { text: 'Clicou no link do WhatsApp', pts: 35, sig: null, color: '#CC8B15' },
-  { text: 'Completou o quiz', pts: 40, sig: 'Quiz feito', color: '#007374' },
-];
-
-let activeFilter = 'todos';
-let selectedId = null;
-
-function setFilter(f, btn) {
-  activeFilter = f;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  selectedId = null;
-  render();
-}
-
-function getStatusFromScore(score) {
+function getStatus(score) {
   if (score >= 115) return 'prioritario';
   if (score >= 80)  return 'quente';
   if (score >= 40)  return 'mornando';
   return 'frio';
 }
 
+function getInitials(nome) {
+  return (nome || '?').split(' ').slice(0,2).map(n => n[0]).join('').toUpperCase();
+}
+
+const AVATAR_COLORS = ['#E8F0EC','#EBF0F4','#F4F0E8','#EDF6F6','#F4EEF8','#EEF4EC'];
+
+// ── MÉTRICAS ───────────────────────────────────────────────────────────────
 function renderMetrics() {
-  const hot  = LEADS.filter(l => l.status === 'quente' || l.status === 'prioritario').length;
-  const warm = LEADS.filter(l => l.status === 'mornando').length;
-  const cold = LEADS.filter(l => l.status === 'frio').length;
-  const avg  = Math.round(LEADS.reduce((a,b) => a + b.score, 0) / LEADS.length);
+  const hot  = LEADS.filter(l => getStatus(l.score) === 'quente' || getStatus(l.score) === 'prioritario').length;
+  const warm = LEADS.filter(l => getStatus(l.score) === 'mornando').length;
+  const avg  = LEADS.length ? Math.round(LEADS.reduce((a,b) => a + (b.score||0), 0) / LEADS.length) : 0;
 
   document.getElementById('metrics-bar').innerHTML = `
     <div class="metric">
@@ -697,55 +304,85 @@ function renderMetrics() {
   `;
 }
 
-function render() {
-  const q = document.getElementById('search').value.toLowerCase();
+// ── TABELA ─────────────────────────────────────────────────────────────────
+function setFilter(f, btn) {
+  activeFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedId = null;
+  renderTable();
+}
+
+function renderTable() {
+  const q = (document.getElementById('search').value || '').toLowerCase();
   const filtered = LEADS.filter(l => {
-    const matchQ = l.name.toLowerCase().includes(q) || l.company.toLowerCase().includes(q) || l.city.toLowerCase().includes(q);
+    const matchQ = (l.nome||'').toLowerCase().includes(q) || (l.email||'').toLowerCase().includes(q);
+    const st = getStatus(l.score || 0);
     const matchF = activeFilter === 'todos'
-      || l.status === activeFilter
-      || (activeFilter === 'quente' && l.status === 'prioritario');
+      || st === activeFilter
+      || (activeFilter === 'quente' && st === 'prioritario');
     return matchQ && matchF;
   });
 
   const body = document.getElementById('table-body');
-
   if (!filtered.length) {
-    body.innerHTML = '<div class="empty">Nenhum lead encontrado com esse filtro.</div>';
+    body.innerHTML = '<div class="state-msg">Nenhum lead encontrado.</div>';
     document.getElementById('detail-panel').className = 'detail-panel';
     return;
   }
 
-  body.innerHTML = filtered.map(l => {
-    const s = STATUS[l.status];
-    const pct = Math.min(100, Math.round((l.score / 140) * 100));
-    const sigDots = Object.entries(l.signals).map(([k, v]) => {
-      const strong = (k === 'E-mail respondido' || k === 'Quiz feito');
-      const col = v ? (strong ? '#CC8B15' : '#007374') : '#E8ECEE';
-      return `<div class="sig-dot" title="${k}" style="background:${col}"></div>`;
+  body.innerHTML = filtered.map((l, i) => {
+    const score  = l.score || 0;
+    const st     = getStatus(score);
+    const s      = STATUS[st];
+    const pct    = Math.min(100, Math.round((score / 140) * 100));
+    const initials = getInitials(l.nome);
+    const bgColor  = AVATAR_COLORS[i % AVATAR_COLORS.length];
+
+    const leadEventos = EVENTOS.filter(e => e.lead_id === l.id);
+    const acoes = [...new Set(leadEventos.map(e => e.acao))];
+    const sigMap = {
+      'abriu_email':    'E-mail aberto',
+      'clicou_link':    'Link clicado',
+      'acessou_pagina': 'LP acessada',
+      'fez_quiz':       'Quiz feito',
+      'respondeu_email':'E-mail respondido',
+      'baixou_pdf':     'PDF baixado'
+    };
+    const sigDots = Object.entries(sigMap).map(([key, label]) => {
+      const active = acoes.includes(key);
+      const strong = key === 'respondeu_email' || key === 'fez_quiz';
+      const col = active ? (strong ? '#CC8B15' : '#007374') : '#E8ECEE';
+      return `<div class="sig-dot" title="${label}" style="background:${col}"></div>`;
     }).join('');
 
+    const lastEvento = leadEventos[0];
+    const lastAcaoLabel = lastEvento ? (sigMap[lastEvento.acao] || lastEvento.acao) : 'Sem ações ainda';
+    const lastTime = lastEvento ? formatTime(lastEvento.timestamp || lastEvento.created_at) : '—';
+    const actionColor = lastEvento && (lastEvento.acao === 'respondeu_email' || lastEvento.acao === 'fez_quiz')
+      ? '#CC8B15' : '#4B646F';
+
     return `
-      <div class="lead-row ${selectedId === l.id ? 'selected' : ''}" onclick="selectLead(${l.id})">
+      <div class="lead-row ${selectedId === l.id ? 'selected' : ''}" onclick="selectLead('${l.id}')">
         <div class="lead-info">
-          <div class="avatar" style="background:${l.avatarBg};color:${l.avatarColor}">${l.initials}</div>
+          <div class="avatar" style="background:${bgColor};color:#2E3E44">${initials}</div>
           <div>
-            <div class="lead-name">${l.name}</div>
-            <div class="lead-sub">${l.company} &middot; ${l.city}</div>
+            <div class="lead-name">${l.nome || l.id}</div>
+            <div class="lead-sub">${l.email || ''}</div>
           </div>
         </div>
         <div>
-          <div class="action-text" style="color:${l.actionColor}">${l.lastAction}</div>
-          <div class="action-time">${l.lastTime}</div>
+          <div class="action-text" style="color:${actionColor}">${lastAcaoLabel}</div>
+          <div class="action-time">${lastTime}</div>
         </div>
         <div class="score-col">
-          <div class="score-num">${l.score} <span style="font-size:11px;color:var(--somma-muted)">pts</span></div>
-          <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${BAR_COLOR[l.status]}"></div></div>
+          <div class="score-num">${score} <span style="font-size:11px;color:var(--somma-muted)">pts</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${BAR_COLOR[st]}"></div></div>
         </div>
         <div class="signals">${sigDots}</div>
         <div>
           <span class="status-badge" style="background:${s.bg};color:${s.color}">
-            <span class="status-dot" style="background:${s.dot}"></span>
-            ${s.label}
+            <span class="status-dot" style="background:${s.dot}"></span>${s.label}
           </span>
         </div>
       </div>
@@ -758,61 +395,73 @@ function render() {
 
 function selectLead(id) {
   selectedId = selectedId === id ? null : id;
-  render();
+  renderTable();
 }
 
+// ── DETAIL ─────────────────────────────────────────────────────────────────
 function renderDetail() {
   const l = LEADS.find(x => x.id === selectedId);
   if (!l) return;
   const panel = document.getElementById('detail-panel');
   panel.className = 'detail-panel open';
+
+  const sigMap = {
+    'abriu_email':    'Abriu o e-mail',
+    'clicou_link':    'Clicou no link do e-mail',
+    'acessou_pagina': 'Acessou a landing page',
+    'fez_quiz':       'Completou o quiz',
+    'respondeu_email':'Respondeu o e-mail',
+    'baixou_pdf':     'Baixou o PDF'
+  };
+  const colorMap = {
+    'respondeu_email': '#CC8B15',
+    'fez_quiz':        '#CC8B15',
+    'acessou_pagina':  '#007374',
+    'clicou_link':     '#4B646F',
+    'baixou_pdf':      '#4B646F',
+    'abriu_email':     '#C3C4C6'
+  };
+
+  const leadEventos = EVENTOS.filter(e => e.lead_id === l.id);
+
   panel.innerHTML = `
     <div class="detail-header">
-      <div class="detail-title">Histórico de sinais &mdash; ${l.name}</div>
-      <button class="simulate-btn" id="sim-btn" onclick="simulateAction(${l.id})">+ Simular nova ação</button>
+      <div class="detail-title">Histórico de sinais — ${l.nome || l.id}</div>
     </div>
-    <div class="timeline">
-      ${l.timeline.map(t => `
-        <div class="tl-item">
-          <div class="tl-dot" style="background:${t.color}"></div>
-          <div style="flex:1">
-            <div class="tl-text">${t.text}</div>
-            <div class="tl-time">${t.time}</div>
+    <div>
+      ${leadEventos.length === 0
+        ? '<div style="font-size:13px;color:var(--somma-muted);padding:1rem 0">Nenhum evento registrado ainda.</div>'
+        : leadEventos.map(e => `
+          <div class="tl-item">
+            <div class="tl-dot" style="background:${colorMap[e.acao] || '#C3C4C6'}"></div>
+            <div style="flex:1">
+              <div class="tl-text">${sigMap[e.acao] || e.acao}</div>
+              <div class="tl-time">${formatTime(e.timestamp || e.created_at)}</div>
+            </div>
+            <div class="tl-pts">+${e.pontos || 0}</div>
           </div>
-          <div class="tl-pts">${t.pts}</div>
-        </div>
-      `).join('')}
+        `).join('')
+      }
     </div>
   `;
 }
 
-function simulateAction(id) {
-  const l = LEADS.find(x => x.id === id);
-  const btn = document.getElementById('sim-btn');
-  const action = SIM_ACTIONS[Math.floor(Math.random() * SIM_ACTIONS.length)];
-  btn.disabled = true;
-  btn.textContent = 'Registrando evento...';
-
-  setTimeout(() => {
-    l.score += action.pts;
-    if (action.sig) l.signals[action.sig] = true;
-    l.lastAction = action.text;
-    l.lastTime = 'agora mesmo';
-    l.actionColor = action.color;
-    l.status = getStatusFromScore(l.score);
-    l.timeline.unshift({
-      text: action.text,
-      pts: '+' + action.pts,
-      time: 'Agora',
-      color: action.color
-    });
-    renderMetrics();
-    render();
-  }, 800);
+// ── HELPERS ────────────────────────────────────────────────────────────────
+function formatTime(ts) {
+  if (!ts) return '—';
+  const d = new Date(ts);
+  const now = new Date();
+  const diff = Math.floor((now - d) / 1000);
+  if (diff < 60)   return 'agora mesmo';
+  if (diff < 3600) return `há ${Math.floor(diff/60)} min`;
+  if (diff < 86400) return `há ${Math.floor(diff/3600)}h`;
+  return d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
 }
 
-renderMetrics();
-render();
+document.getElementById('today-date').textContent =
+  new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+loadData();
 </script>
 </body>
 </html>
